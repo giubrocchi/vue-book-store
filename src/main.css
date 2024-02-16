@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:wght@100,200,300,400,500,600,700,800,900&display=swap');
+
+:root {
+  --dark-base-color: #10202e;
+}
+
+body {
+  height: 100dvh;
+  margin: 0px;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  color: var(--dark-base-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  height: 100%;
+}
