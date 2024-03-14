@@ -1,18 +1,40 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+const query = ref();
+
+function searchBook() {
+  const formattedQuery = query.value.trim()?.toLowerCase() ?? '';
+
+  if (!formattedQuery) {
+    goToHome();
+    return;
+  }
+
+  router.push(`/browse/${formattedQuery}`);
+}
+
+function goToHome() {
+  query.value = '';
+  router.push('/');
+}
 </script>
 
 <template>
   <div class="background">
-    <div class="logoContainer" @click.prevent="router.push('/')">
+    <div class="logoContainer" @click.prevent="goToHome">
       <img class="logoImage" src="@/assets/minervaLogo.png" />
       <h1 class="logoName">Minerva Store</h1>
     </div>
     <div class="searchContainer">
-      <v-icon name="bi-search" fill="var(--dark-base-color)" scale="1.5" />
-      <input type="text" placeholder="Search book" />
+      <form @submit.prevent="searchBook">
+        <button type="submit">
+          <v-icon name="bi-search" fill="var(--dark-base-color)" scale="1.5" />
+        </button>
+        <input type="text" placeholder="Search book" v-model="query" />
+      </form>
     </div>
   </div>
 </template>
@@ -49,6 +71,16 @@ const router = useRouter();
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.searchContainer form {
+  display: contents;
+}
+
+.searchContainer button {
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .searchContainer input {

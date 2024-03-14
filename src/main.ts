@@ -5,12 +5,14 @@ import { BiSearch } from 'oh-vue-icons/icons';
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './components/Home.vue';
 import BookPage from './components/BookPage.vue';
+import BookSearch from './components/BookSearch.vue';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: Home },
-    { path: '/book/:id', component: BookPage }
+    { path: '/book/:id', component: BookPage },
+    { path: '/browse/:searchQuery', component: BookSearch }
   ]
 });
 
